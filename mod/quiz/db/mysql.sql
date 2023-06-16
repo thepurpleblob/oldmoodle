@@ -46,7 +46,7 @@ CREATE TABLE prefix_quiz (
   delay2 int(10) NOT NULL default '0',
   PRIMARY KEY  (id),
   KEY course (course)
-) TYPE=MyISAM COMMENT='Main information about each quiz';
+) ENGINE=MyISAM COMMENT='Main information about each quiz';
 
 -- --------------------------------------------------------
 
@@ -62,7 +62,7 @@ CREATE TABLE prefix_question_answers (
   feedback text NOT NULL default '',
   PRIMARY KEY  (id),
   KEY question (question)
-) TYPE=MyISAM COMMENT='Answers, with a fractional grade (0-1) and feedback';
+) ENGINE=MyISAM COMMENT='Answers, with a fractional grade (0-1) and feedback';
 
 -- --------------------------------------------------------
 
@@ -86,7 +86,7 @@ CREATE TABLE prefix_quiz_attempts (
   UNIQUE KEY `uniqueid` (`uniqueid`),
   KEY quiz (quiz),
   KEY userid (userid)
-) TYPE=MyISAM COMMENT='Stores various attempts on a quiz';
+) ENGINE=MyISAM COMMENT='Stores various attempts on a quiz';
 
 -- --------------------------------------------------------
 
@@ -105,7 +105,7 @@ CREATE TABLE prefix_question_categories (
   sortorder int(10) unsigned NOT NULL default '999',
   PRIMARY KEY  (id),
   KEY course (course)
-) TYPE=MyISAM COMMENT='Categories are for grouping questions';
+) ENGINE=MyISAM COMMENT='Categories are for grouping questions';
 
 -- --------------------------------------------------------
 
@@ -122,7 +122,7 @@ CREATE TABLE prefix_question_dataset_definitions (
   itemcount int(10) unsigned NOT NULL default '0',
   PRIMARY KEY  (id),
   KEY category (category)
-) TYPE=MyISAM COMMENT='Organises and stores properties for dataset items';
+) ENGINE=MyISAM COMMENT='Organises and stores properties for dataset items';
 
 -- --------------------------------------------------------
 
@@ -137,7 +137,7 @@ CREATE TABLE prefix_question_dataset_items (
   value varchar(255) NOT NULL default '',
   PRIMARY KEY  (id),
   KEY definition (definition)
-) TYPE=MyISAM COMMENT='Individual dataset items';
+) ENGINE=MyISAM COMMENT='Individual dataset items';
 
 -- --------------------------------------------------------
 
@@ -154,7 +154,7 @@ CREATE TABLE prefix_quiz_grades (
   PRIMARY KEY  (id),
   KEY quiz (quiz),
   KEY userid (userid)
-) TYPE=MyISAM COMMENT='Final quiz grade (may be best of several attempts)';
+) ENGINE=MyISAM COMMENT='Final quiz grade (may be best of several attempts)';
 
 -- --------------------------------------------------------
 
@@ -172,7 +172,7 @@ CREATE TABLE prefix_question_sessions (
   comment text NOT NULL default '',
   PRIMARY KEY  (id),
   UNIQUE KEY attemptid (attemptid,questionid)
-) TYPE=MyISAM COMMENT='Gives ids of the newest open and newest graded states';
+) ENGINE=MyISAM COMMENT='Gives ids of the newest open and newest graded states';
 
 -- --------------------------------------------------------
 
@@ -187,7 +187,7 @@ CREATE TABLE prefix_question_numerical_units (
   unit varchar(50) NOT NULL default '',
   PRIMARY KEY  (id),
   KEY question (question)
-) TYPE=MyISAM COMMENT='Optional unit options for numerical questions';
+) ENGINE=MyISAM COMMENT='Optional unit options for numerical questions';
 
 -- --------------------------------------------------------
 
@@ -201,7 +201,7 @@ CREATE TABLE prefix_question_datasets (
   datasetdefinition int(10) unsigned NOT NULL default '0',
   PRIMARY KEY  (id),
   KEY question (question,datasetdefinition)
-) TYPE=MyISAM COMMENT='Many-many relation between questions and dataset definitions';
+) ENGINE=MyISAM COMMENT='Many-many relation between questions and dataset definitions';
 
 -- --------------------------------------------------------
 
@@ -217,7 +217,7 @@ CREATE TABLE prefix_quiz_question_instances (
   PRIMARY KEY  (id),
   KEY quiz (quiz),
   KEY question (question)
-) TYPE=MyISAM COMMENT='The grade for a question in a quiz';
+) ENGINE=MyISAM COMMENT='The grade for a question in a quiz';
 
 -- --------------------------------------------------------
 
@@ -234,7 +234,7 @@ CREATE TABLE prefix_quiz_question_versions (
   userid int(10) unsigned NOT NULL default '0',
   timestamp int(10) unsigned NOT NULL default '0',
   PRIMARY KEY  (id)
-) TYPE=MyISAM COMMENT='The mapping between old and new versions of a question';
+) ENGINE=MyISAM COMMENT='The mapping between old and new versions of a question';
 
 -- --------------------------------------------------------
 
@@ -259,7 +259,7 @@ CREATE TABLE prefix_question (
   hidden int(1) unsigned NOT NULL default '0',
   PRIMARY KEY  (id),
   KEY category (category)
-) TYPE=MyISAM COMMENT='The quiz questions themselves';
+) ENGINE=MyISAM COMMENT='The quiz questions themselves';
 
 -- --------------------------------------------------------
 
@@ -282,7 +282,7 @@ CREATE TABLE prefix_question_states (
   PRIMARY KEY  (id),
   KEY attempt (attempt),
   KEY question (question)
-) TYPE=MyISAM COMMENT='Stores user responses to a quiz, and percentage grades';
+) ENGINE=MyISAM COMMENT='Stores user responses to a quiz, and percentage grades';
 
 -- --------------------------------------------------------
 
@@ -294,7 +294,7 @@ CREATE TABLE prefix_question_attempts (
   id int(10) unsigned NOT NULL auto_increment,
   modulename varchar(20) NOT NULL default 'quiz',
   PRIMARY KEY  (id)
-) TYPE=MyISAM COMMENT='Student attempts. This table gets extended by the modules';
+) ENGINE=MyISAM COMMENT='Student attempts. This table gets extended by the modules';
 
 -- --------------------------------------------------------
 

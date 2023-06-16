@@ -12,6 +12,6 @@ CREATE TABLE prefix_question_numerical (
   PRIMARY KEY  (id),
   KEY answer (answer),
   KEY question (question)
-) TYPE=MyISAM COMMENT='Options for numerical questions';
+) ENGINE=MyISAM COMMENT='Options for numerical questions';
 
 -- --------------------------------------------------------

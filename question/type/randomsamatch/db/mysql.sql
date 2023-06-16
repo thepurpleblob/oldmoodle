@@ -8,6 +8,6 @@ CREATE TABLE prefix_question_randomsamatch (
   choose int(10) unsigned NOT NULL default '4',
   PRIMARY KEY  (id),
   KEY question (question)
-) TYPE=MyISAM COMMENT='Info about a random short-answer matching question';
+) ENGINE=MyISAM COMMENT='Info about a random short-answer matching question';
 
 -- --------------------------------------------------------

@@ -42,7 +42,7 @@ CREATE TABLE prefix_data (
   defaultsortdir tinyint(4) unsigned NOT NULL default '0',
   editany tinyint(4) unsigned NOT NULL default '0',
   PRIMARY KEY  (id)
-) TYPE=MyISAM COMMENT='Defines settings for each Database activity';
+) ENGINE=MyISAM COMMENT='Defines settings for each Database activity';
 
 
 CREATE TABLE prefix_data_content (
@@ -55,7 +55,7 @@ CREATE TABLE prefix_data_content (
   content3 longtext NOT NULL default '',
   content4 longtext NOT NULL default '',
   PRIMARY KEY  (id)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 CREATE TABLE prefix_data_fields (
@@ -75,7 +75,7 @@ CREATE TABLE prefix_data_fields (
   param9  text NOT NULL default '',
   param10 text NOT NULL default '',
   PRIMARY KEY  (id)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 CREATE TABLE prefix_data_records (
@@ -87,7 +87,7 @@ CREATE TABLE prefix_data_records (
   timemodified int(10) unsigned NOT NULL default '0',
   approved tinyint(4) unsigned NOT NULL default '0',
   PRIMARY KEY  (id)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 CREATE TABLE prefix_data_comments (
@@ -98,7 +98,7 @@ CREATE TABLE prefix_data_comments (
   created int(10) unsigned NOT NULL default '0',
   modified int(10) unsigned NOT NULL default '0',
   PRIMARY KEY  (id)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 CREATE TABLE prefix_data_ratings (
@@ -107,7 +107,7 @@ CREATE TABLE prefix_data_ratings (
   recordid int(10) unsigned NOT NULL default '0',
   rating int(10) unsigned NOT NULL default '0',
   PRIMARY KEY  (id)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 INSERT INTO prefix_log_display (module, action, mtable, field) VALUES ('data', 'view', 'data', 'name');

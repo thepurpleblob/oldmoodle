@@ -25,7 +25,7 @@ CREATE TABLE prefix_journal (
   timemodified int(10) unsigned NOT NULL default '0',
   PRIMARY KEY  (id),
   KEY course (course)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 # --------------------------------------------------------
 
 #
@@ -47,7 +47,7 @@ CREATE TABLE prefix_journal_entries (
   PRIMARY KEY  (id), 
   KEY journal (journal),
   KEY userid (userid)
-) TYPE=MyISAM COMMENT='All the journal entries of all people';
+) ENGINE=MyISAM COMMENT='All the journal entries of all people';
 
 #
 # Dumping data for table `log_display`

@@ -32,7 +32,7 @@ CREATE TABLE prefix_choice (
   PRIMARY KEY  (id),
   UNIQUE KEY id (id),
   KEY course (course)
-) TYPE=MyISAM COMMENT='Available choices are stored here.';
+) ENGINE=MyISAM COMMENT='Available choices are stored here.';
 
 
 # --------------------------------------------------------
@@ -51,7 +51,7 @@ CREATE TABLE prefix_choice_answers (
   UNIQUE KEY id (id),
   KEY userid (userid),
   KEY choiceid (choiceid)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 # --------------------------------------------------------
@@ -69,7 +69,7 @@ CREATE TABLE prefix_choice_options (
   PRIMARY KEY  (id),
   UNIQUE KEY id (id),
   KEY choiceid (choiceid)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 #
 # Dumping data for table `log_display`

@@ -11,7 +11,7 @@ CREATE TABLE prefix_question_match (
   shuffleanswers tinyint(4) NOT NULL default '1',
   PRIMARY KEY  (id),
   KEY question (question)
-) TYPE=MyISAM COMMENT='Defines fixed matching questions';
+) ENGINE=MyISAM COMMENT='Defines fixed matching questions';
 
 -- --------------------------------------------------------
 
@@ -27,6 +27,6 @@ CREATE TABLE prefix_question_match_sub (
   answertext varchar(255) NOT NULL default '',
   PRIMARY KEY  (id),
   KEY question (question)
-) TYPE=MyISAM COMMENT='Defines the subquestions that make up a matching question';
+) ENGINE=MyISAM COMMENT='Defines the subquestions that make up a matching question';
 
 -- --------------------------------------------------------

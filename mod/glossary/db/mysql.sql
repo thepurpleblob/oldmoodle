@@ -37,7 +37,7 @@ CREATE TABLE prefix_glossary (
      timemodified int(10) unsigned NOT NULL default '0',
      PRIMARY KEY  (id),
      KEY course (course)
-) TYPE=MyISAM COMMENT='all glossaries';
+) ENGINE=MyISAM COMMENT='all glossaries';
 
 #
 # Table structure for table `glossary_entries`
@@ -63,7 +63,7 @@ CREATE TABLE prefix_glossary_entries (
      KEY glossaryid (glossaryid),
      KEY userid (userid),
      KEY concept (concept)
-) TYPE=MyISAM COMMENT='all glossary entries';
+) ENGINE=MyISAM COMMENT='all glossary entries';
 
 #
 # Table structure for table `glossary_alias`
@@ -75,7 +75,7 @@ CREATE TABLE prefix_glossary_alias (
      alias varchar(255) NOT NULL default '',
      PRIMARY KEY  (id), 
      KEY entryid (entryid)
-) TYPE=MyISAM COMMENT='entries alias';
+) ENGINE=MyISAM COMMENT='entries alias';
 
 #
 # Table structure for table `glossary_cageories`
@@ -88,7 +88,7 @@ CREATE TABLE prefix_glossary_categories (
      usedynalink tinyint(2) unsigned NOT NULL default '1',
      PRIMARY KEY  (id),
      KEY glossaryid (glossaryid)
-) TYPE=MyISAM COMMENT='all categories for glossary entries';
+) ENGINE=MyISAM COMMENT='all categories for glossary entries';
 
 #
 # Table structure for table `glossary_entries_category`
@@ -101,7 +101,7 @@ CREATE TABLE prefix_glossary_entries_categories (
      PRIMARY KEY  (id),
      KEY entryid (entryid),
      KEY categoryid (categoryid) 
-) TYPE=MyISAM COMMENT='categories of each glossary entry';
+) ENGINE=MyISAM COMMENT='categories of each glossary entry';
 
 CREATE TABLE prefix_glossary_comments (
      id int(10) unsigned NOT NULL auto_increment,
@@ -113,7 +113,7 @@ CREATE TABLE prefix_glossary_comments (
      PRIMARY KEY  (id),
      KEY userid (userid),
      KEY entryid (entryid)
-) TYPE=MyISAM COMMENT='comments on glossary entries';
+) ENGINE=MyISAM COMMENT='comments on glossary entries';
 
 CREATE TABLE prefix_glossary_formats (
      id int(10) unsigned NOT NULL auto_increment,
@@ -126,7 +126,7 @@ CREATE TABLE prefix_glossary_formats (
      sortkey varchar(50) NOT NULL default '',
      sortorder varchar(50) NOT NULL default '',
      PRIMARY KEY  (id)
-) TYPE=MyISAM COMMENT='Setting of the display formats';
+) ENGINE=MyISAM COMMENT='Setting of the display formats';
 
 #
 # Table structure for table `forum_ratings`

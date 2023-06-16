@@ -12,7 +12,7 @@ CREATE TABLE `prefix_block` (
   `visible` tinyint(1) NOT NULL default '1',
   `multiple` tinyint(1) NOT NULL default '0',
   PRIMARY KEY  (`id`)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 CREATE TABLE `prefix_block_instance` (
   `id` int(10) not null auto_increment,
@@ -26,7 +26,7 @@ CREATE TABLE `prefix_block_instance` (
   PRIMARY KEY(`id`),
   INDEX pageid(`pageid`),
   INDEX pagetype(`pagetype`)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 CREATE TABLE `prefix_block_pinned` (
   `id` int(10) not null auto_increment,
@@ -38,7 +38,7 @@ CREATE TABLE `prefix_block_pinned` (
   `configdata` text not null default '',
   PRIMARY KEY(`id`),
   INDEX pagetype(`pagetype`)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 

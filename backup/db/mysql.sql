@@ -11,7 +11,7 @@ CREATE TABLE `prefix_backup_files` (
   `new_id` int(10) unsigned NOT NULL default '0',
   PRIMARY KEY  (`id`),
   UNIQUE KEY `backup_files_uk` (`backup_code`,`file_type`,`path`)
-) TYPE=MyISAM COMMENT='To store and recode ids to user and course files.';
+) ENGINE=MyISAM COMMENT='To store and recode ids to user and course files.';
 # --------------------------------------------------------
 
 #
@@ -27,7 +27,7 @@ CREATE TABLE `prefix_backup_ids` (
   `info` mediumtext NOT NULL default '',
   PRIMARY KEY  (`id`),
   UNIQUE KEY `backup_ids_uk` (`backup_code` ,`table_name`,`old_id`)
-) TYPE=MyISAM COMMENT='To store and convert ids in backup/restore';
+) ENGINE=MyISAM COMMENT='To store and convert ids in backup/restore';
 # --------------------------------------------------------
 
 #
@@ -40,7 +40,7 @@ CREATE TABLE `prefix_backup_config` (
   `value` varchar(255) NOT NULL default '',
   PRIMARY KEY  (`id`),
   UNIQUE KEY `name` (`name`)
-) TYPE=MyISAM COMMENT='To store backup configuration variables';
+) ENGINE=MyISAM COMMENT='To store backup configuration variables';
 # --------------------------------------------------------
 
 #
@@ -56,7 +56,7 @@ CREATE TABLE `prefix_backup_courses` (
   `nextstarttime` int(10) unsigned NOT NULL default '0',
   PRIMARY KEY  (`id`),
   UNIQUE KEY `courseid` (`courseid`)
-) TYPE=MyISAM COMMENT='To store every course backup status';
+) ENGINE=MyISAM COMMENT='To store every course backup status';
 
 # --------------------------------------------------------
 
@@ -71,5 +71,5 @@ CREATE TABLE `prefix_backup_log` (
   `laststarttime` int(10) unsigned NOT NULL default '0',
   `info` varchar(255) NOT NULL default '',
   PRIMARY KEY  (`id`)
-) TYPE=MyISAM COMMENT='To store every course backup log info';
+) ENGINE=MyISAM COMMENT='To store every course backup log info';
 # --------------------------------------------------------

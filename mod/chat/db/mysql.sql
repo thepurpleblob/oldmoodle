@@ -14,7 +14,7 @@ CREATE TABLE `prefix_chat` (
   `timemodified` int(10) unsigned NOT NULL default '0',
   PRIMARY KEY  (`id`),
   KEY `course` (`course`)
-) TYPE=MyISAM COMMENT='Each of these is a chat room';
+) ENGINE=MyISAM COMMENT='Each of these is a chat room';
 # --------------------------------------------------------
 
 #
@@ -34,7 +34,7 @@ CREATE TABLE `prefix_chat_messages` (
   KEY `chatid` (`chatid`),
   KEY `userid` (`userid`),
   KEY `groupid` (`groupid`)
-) TYPE=MyISAM COMMENT='Stores all the actual chat messages';
+) ENGINE=MyISAM COMMENT='Stores all the actual chat messages';
 # --------------------------------------------------------
 
 #
@@ -59,7 +59,7 @@ CREATE TABLE `prefix_chat_users` (
   KEY `lastping` (`lastping`),
   KEY `chatid` (`chatid`),
   KEY `groupid` (`groupid`)
-) TYPE=MyISAM COMMENT='Keeps track of which users are in which chat rooms';
+) ENGINE=MyISAM COMMENT='Keeps track of which users are in which chat rooms';
 
 
 INSERT INTO prefix_log_display (module, action, mtable, field) VALUES ('chat', 'view', 'chat', 'name');

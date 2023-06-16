@@ -12,7 +12,7 @@ CREATE TABLE prefix_question_rqp (
   maxscore int(10) unsigned NOT NULL default '1',
   PRIMARY KEY  (id),
   KEY question (question)
-) TYPE=MyISAM COMMENT='Options for RQP questions';
+) ENGINE=MyISAM COMMENT='Options for RQP questions';
 
 -- --------------------------------------------------------
 
@@ -27,7 +27,7 @@ CREATE TABLE prefix_question_rqp_servers (
   can_render tinyint(2) unsigned NOT NULL default '0',
   can_author tinyint(2) unsigned NOT NULL default '0',
   PRIMARY KEY  (id)
-) TYPE=MyISAM COMMENT='Information about RQP servers';
+) ENGINE=MyISAM COMMENT='Information about RQP servers';
 
 -- --------------------------------------------------------
 
@@ -42,7 +42,7 @@ CREATE TABLE prefix_question_rqp_states (
   persistent_data text NOT NULL default '',
   template_vars text NOT NULL default '',
   PRIMARY KEY  (id)
-) TYPE=MyISAM COMMENT='RQP question type specific state information';
+) ENGINE=MyISAM COMMENT='RQP question type specific state information';
 
 -- --------------------------------------------------------
 
@@ -55,6 +55,6 @@ CREATE TABLE prefix_question_rqp_types (
   name varchar(255) NOT NULL default '',
   PRIMARY KEY  (id),
   UNIQUE KEY name (name)
-) TYPE=MyISAM COMMENT='RQP question types';
+) ENGINE=MyISAM COMMENT='RQP question types';
 
 -- --------------------------------------------------------

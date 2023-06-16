@@ -13,6 +13,6 @@ CREATE TABLE prefix_question_multichoice (
   shuffleanswers tinyint(4) NOT NULL default '1',
   PRIMARY KEY  (id),
   KEY question (question)
-) TYPE=MyISAM COMMENT='Options for multiple choice questions';
+) ENGINE=MyISAM COMMENT='Options for multiple choice questions';
 
 -- --------------------------------------------------------

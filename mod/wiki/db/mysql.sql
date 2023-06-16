@@ -24,7 +24,7 @@ CREATE TABLE `prefix_wiki` (
   `timemodified` int(10) NOT NULL default '0',
   PRIMARY KEY  (`id`),
   KEY `course` (`course`)
-) TYPE=MyISAM COMMENT='Main wiki table';
+) ENGINE=MyISAM COMMENT='Main wiki table';
 
 
 #
@@ -45,7 +45,7 @@ CREATE TABLE `prefix_wiki_entries` (
   KEY `gropuid` (`groupid`),
   KEY `userid` (`userid`),
   KEY `pagename` (`pagename`)
-) TYPE=MyISAM COMMENT='Holds entries for each wiki start instance.';
+) ENGINE=MyISAM COMMENT='Holds entries for each wiki start instance.';
 
 
 CREATE TABLE `prefix_wiki_pages` (
@@ -64,4 +64,4 @@ CREATE TABLE `prefix_wiki_pages` (
   `wiki` int(10) unsigned NOT NULL default 0,
   PRIMARY KEY `id` (`id`),
   UNIQUE KEY `wiki_pages_uk` (`pagename`, `version`, `wiki`)
-) TYPE=MyISAM COMMENT='Holds the Wiki-Pages';
+) ENGINE=MyISAM COMMENT='Holds the Wiki-Pages';

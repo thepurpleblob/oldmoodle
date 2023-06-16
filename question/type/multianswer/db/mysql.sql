@@ -10,6 +10,6 @@ CREATE TABLE prefix_question_multianswer (
   sequence text NOT NULL default '',
   PRIMARY KEY  (id),
   KEY question (question)
-) TYPE=MyISAM COMMENT='Options for multianswer questions';
+) ENGINE=MyISAM COMMENT='Options for multianswer questions';
 
 -- --------------------------------------------------------

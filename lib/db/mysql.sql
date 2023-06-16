@@ -20,7 +20,7 @@ CREATE TABLE `prefix_config` (
   `value` text NOT NULL default '',
   PRIMARY KEY  (`id`),
   UNIQUE KEY `name` (`name`)
-) TYPE=MyISAM COMMENT='Moodle configuration variables';
+) ENGINE=MyISAM COMMENT='Moodle configuration variables';
 # --------------------------------------------------------
 
 #
@@ -34,7 +34,7 @@ CREATE TABLE `prefix_config_plugins` (
   `value`      text NOT NULL default '',
   PRIMARY KEY  (`id`),
   UNIQUE KEY `plugin_name` (`plugin`, `name`)
-) TYPE=MyISAM COMMENT='Moodle modules and plugins configuration variables';
+) ENGINE=MyISAM COMMENT='Moodle modules and plugins configuration variables';
 # --------------------------------------------------------
 
 
@@ -90,7 +90,7 @@ CREATE TABLE `prefix_course` (
   KEY `category` (`category`),
   KEY `idnumber` (`idnumber`),
   KEY `shortname` (`shortname`)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 # --------------------------------------------------------
 
 #
@@ -110,7 +110,7 @@ CREATE TABLE `prefix_course_categories` (
   `path` varchar(255) NOT NULL default '',
   PRIMARY KEY  (`id`),
   UNIQUE KEY `id` (`id`)
-) TYPE=MyISAM COMMENT='Course categories';
+) ENGINE=MyISAM COMMENT='Course categories';
 # --------------------------------------------------------
 
 
@@ -126,7 +126,7 @@ CREATE TABLE `prefix_course_display` (
   PRIMARY KEY  (`id`),
   UNIQUE KEY `id` (`id`),
   KEY `courseuserid` (course,userid)
-) TYPE=MyISAM COMMENT='Stores info about how to display the course';
+) ENGINE=MyISAM COMMENT='Stores info about how to display the course';
 # --------------------------------------------------------
 
 
@@ -167,7 +167,7 @@ CREATE TABLE `prefix_course_modules` (
   KEY `course` (`course`),
   KEY `module` (`module`),
   KEY `instance` (`instance`)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 # --------------------------------------------------------
 
 #
@@ -183,7 +183,7 @@ CREATE TABLE `prefix_course_sections` (
   `visible` tinyint(1) NOT NULL default '1',
   PRIMARY KEY  (`id`),
   KEY `coursesection` (course,section)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 # --------------------------------------------------------
 
 # 
@@ -200,7 +200,7 @@ CREATE TABLE `prefix_course_request`  (
   `password` varchar(50) NOT NULL default '',
   PRIMARY KEY (`id`),
   KEY `shortname` (`shortname`)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 # ---------------------------------------------------------
 
 #
@@ -214,7 +214,7 @@ CREATE TABLE `prefix_course_allowed_modules` (
    PRIMARY KEY (`id`),
    KEY `course` (`course`),
    KEY `module` (`module`)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 ------------------------------------------------------------
 
@@ -246,7 +246,7 @@ CREATE TABLE `prefix_event` (
   KEY `userid` (`userid`),
   KEY `timestart` (`timestart`),
   KEY `timeduration` (`timeduration`)
-) TYPE=MyISAM COMMENT='For everything with a time associated to it';
+) ENGINE=MyISAM COMMENT='For everything with a time associated to it';
 # --------------------------------------------------------
 
 #
@@ -262,7 +262,7 @@ CREATE TABLE `prefix_cache_filters` (
   `timemodified` int(10) unsigned NOT NULL default '0',
   PRIMARY KEY  (`id`),
   KEY `filtermd5key` (filter,md5key)
-) TYPE=MyISAM COMMENT='For keeping information about cached data';
+) ENGINE=MyISAM COMMENT='For keeping information about cached data';
 # --------------------------------------------------------
 
 
@@ -277,7 +277,7 @@ CREATE TABLE `prefix_cache_text` (
   `timemodified` int(10) unsigned NOT NULL default '0',
   PRIMARY KEY  (`id`),
   KEY `md5key` (`md5key`)
-) TYPE=MyISAM COMMENT='For storing temporary copies of processed texts';
+) ENGINE=MyISAM COMMENT='For storing temporary copies of processed texts';
 # --------------------------------------------------------
 
 
@@ -295,7 +295,7 @@ CREATE TABLE `prefix_grade_category` (
   `weight` decimal(5,2) NOT NULL default '0.00',
   PRIMARY KEY  (`id`),
   KEY `courseid` (`courseid`)
-) TYPE=MyISAM ;
+) ENGINE=MyISAM ;
 
 # --------------------------------------------------------
 
@@ -310,7 +310,7 @@ CREATE TABLE `prefix_grade_exceptions` (
   `userid` int(10) unsigned NOT NULL default '0',
   PRIMARY KEY  (`id`),
   KEY `courseid` (`courseid`)
-) TYPE=MyISAM ;
+) ENGINE=MyISAM ;
 
 # --------------------------------------------------------
 
@@ -329,7 +329,7 @@ CREATE TABLE `prefix_grade_item` (
   `sort_order` int(10) unsigned NOT NULL default '0',
   PRIMARY KEY  (`id`),
   KEY `courseid` (`courseid`)
-) TYPE=MyISAM ;
+) ENGINE=MyISAM ;
 
 # --------------------------------------------------------
 
@@ -345,7 +345,7 @@ CREATE TABLE `prefix_grade_letter` (
   `grade_low` decimal(5,2) NOT NULL default '0.00',
   PRIMARY KEY  (`id`),
   KEY `courseid` (`courseid`)
-) TYPE=MyISAM ;
+) ENGINE=MyISAM ;
 
 # --------------------------------------------------------
 
@@ -360,7 +360,7 @@ CREATE TABLE `prefix_grade_preferences` (
   `value` int(10) NOT NULL default '0',
   PRIMARY KEY  (`id`),
   UNIQUE KEY `courseidpreference` (`courseid`,`preference`)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 # --------------------------------------------------------
 
@@ -383,7 +383,7 @@ CREATE TABLE `prefix_groups` (
   PRIMARY KEY  (`id`),
   UNIQUE KEY `id` (`id`),
   KEY `courseid` (`courseid`)
-) TYPE=MyISAM COMMENT='Each record is a group in a course.';
+) ENGINE=MyISAM COMMENT='Each record is a group in a course.';
 # --------------------------------------------------------
 
 #
@@ -399,7 +399,7 @@ CREATE TABLE `prefix_groups_members` (
   UNIQUE KEY `id` (`id`),
   KEY `groupid` (`groupid`),
   KEY `userid` (`userid`)
-) TYPE=MyISAM COMMENT='Lists memberships of users to groups';
+) ENGINE=MyISAM COMMENT='Lists memberships of users to groups';
 # --------------------------------------------------------
 
 
@@ -424,7 +424,7 @@ CREATE TABLE `prefix_log` (
   KEY `courseuserid` (course,userid),
   KEY `userid` (userid),
   KEY `info` (info)
-) TYPE=MyISAM COMMENT='Every action is logged as far as possible.';
+) ENGINE=MyISAM COMMENT='Every action is logged as far as possible.';
 # --------------------------------------------------------
 
 #
@@ -438,7 +438,7 @@ CREATE TABLE `prefix_log_display` (
   `mtable` varchar(30) NOT NULL default '',
   `field` varchar(50) NOT NULL default '',
    PRIMARY KEY  (`id`)
-) TYPE=MyISAM COMMENT='For a particular module/action, specifies a moodle table/field.';
+) ENGINE=MyISAM COMMENT='For a particular module/action, specifies a moodle table/field.';
 ALTER TABLE prefix_log_display ADD UNIQUE `moduleaction`(`module` , `action`);
 # --------------------------------------------------------
 
@@ -457,7 +457,7 @@ CREATE TABLE `prefix_message` (
   PRIMARY KEY  (`id`),
   KEY `useridfrom` (`useridfrom`),
   KEY `useridto` (`useridto`)
-) TYPE=MyISAM COMMENT='Stores all unread messages';
+) ENGINE=MyISAM COMMENT='Stores all unread messages';
 # --------------------------------------------------------
 
 #
@@ -477,7 +477,7 @@ CREATE TABLE `prefix_message_read` (
   PRIMARY KEY  (`id`),
   KEY `useridfrom` (`useridfrom`),
   KEY `useridto` (`useridto`)
-) TYPE=MyISAM COMMENT='Stores all messages that have been read';
+) ENGINE=MyISAM COMMENT='Stores all messages that have been read';
 # --------------------------------------------------------
 
 #
@@ -491,7 +491,7 @@ CREATE TABLE `prefix_message_contacts` (
   `blocked` tinyint(1) unsigned NOT NULL default '0',
   PRIMARY KEY  (`id`),
   UNIQUE KEY `usercontact` (`userid`,`contactid`)
-) TYPE=MyISAM COMMENT='Maintains lists of relationships between users';
+) ENGINE=MyISAM COMMENT='Maintains lists of relationships between users';
 # --------------------------------------------------------
 
 #
@@ -509,7 +509,7 @@ CREATE TABLE `prefix_modules` (
   PRIMARY KEY  (`id`),
   UNIQUE KEY `id` (`id`),
   KEY `name` (`name`)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 # --------------------------------------------------------
 
 
@@ -527,7 +527,7 @@ CREATE TABLE `prefix_scale` (
   `timemodified` int(10) unsigned NOT NULL default '0',
   PRIMARY KEY  (id),
   KEY `courseid` (`courseid`)
-) TYPE=MyISAM COMMENT='Defines grading scales';
+) ENGINE=MyISAM COMMENT='Defines grading scales';
 # --------------------------------------------------------
 
 
@@ -542,7 +542,7 @@ CREATE TABLE `prefix_sessions` (
   `data` mediumtext NOT null default '',
   PRIMARY KEY (`sesskey`), 
   KEY (`expiry`) 
-) TYPE=MyISAM COMMENT='Optional database session storage, not used by default';
+) ENGINE=MyISAM COMMENT='Optional database session storage, not used by default';
 # --------------------------------------------------------
 
 
@@ -568,7 +568,7 @@ CREATE TABLE `prefix_timezone` (
   `std_skipweeks` tinyint(3) NOT NULL default '0',
   `std_time` varchar(5) NOT NULL default '00:00',
   PRIMARY KEY (`id`)
-) TYPE=MyISAM COMMENT='Rules for calculating local wall clock time for users';
+) ENGINE=MyISAM COMMENT='Rules for calculating local wall clock time for users';
 
 
 #
@@ -632,7 +632,7 @@ CREATE TABLE `prefix_user` (
   KEY `user_country` (`country`),
   KEY `user_lastaccess` (`lastaccess`),
   KEY `user_email` (`email`)
-) TYPE=MyISAM COMMENT='One record for each person';
+) ENGINE=MyISAM COMMENT='One record for each person';
 
 ALTER TABLE `prefix_user` ADD INDEX `auth` (`auth`);
 ALTER TABLE `prefix_user` ADD INDEX `idnumber` (`idnumber`);
@@ -648,7 +648,7 @@ CREATE TABLE `prefix_user_admins` (
   PRIMARY KEY  (`id`),
   UNIQUE KEY `id` (`id`),
   KEY `userid` (`userid`)
-) TYPE=MyISAM COMMENT='One record per administrator user';
+) ENGINE=MyISAM COMMENT='One record per administrator user';
 # --------------------------------------------------------
 
 
@@ -665,7 +665,7 @@ CREATE TABLE `prefix_user_preferences` (
   PRIMARY KEY  (`id`),
   UNIQUE KEY `id` (`id`),
   KEY `useridname` (userid,name)
-) TYPE=MyISAM COMMENT='Allows modules to store arbitrary user preferences';
+) ENGINE=MyISAM COMMENT='Allows modules to store arbitrary user preferences';
 # --------------------------------------------------------
 
 
@@ -689,7 +689,7 @@ CREATE TABLE `prefix_user_students` (
   KEY `userid` (userid),
   KEY `enrol` (enrol),
   KEY `timeaccess` (timeaccess)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 # --------------------------------------------------------
 
 #
@@ -713,7 +713,7 @@ CREATE TABLE `prefix_user_teachers` (
   UNIQUE KEY `courseuserid` (course,userid),
   KEY `userid` (userid),
   KEY `enrol` (enrol)
-) TYPE=MyISAM COMMENT='One record per teacher per course';
+) ENGINE=MyISAM COMMENT='One record per teacher per course';
 
 #
 # Table structure for table `user_admins`
@@ -725,7 +725,7 @@ CREATE TABLE `prefix_user_coursecreators` (
   PRIMARY KEY  (`id`),
   UNIQUE KEY `id` (`id`),
   KEY `userid` (`userid`)
-) TYPE=MyISAM COMMENT='One record per course creator';
+) ENGINE=MyISAM COMMENT='One record per course creator';
 
 
 #
@@ -871,7 +871,7 @@ CREATE TABLE prefix_post (
   KEY `post_lastmodified_idx` (`lastmodified`),
   KEY `post_module_idx` (`module`),
   KEY `post_subject_idx` (`subject`)
-) TYPE=MyISAM  COMMENT='Generic post table to hold data blog entries etc in different modules.';
+) ENGINE=MyISAM  COMMENT='Generic post table to hold data blog entries etc in different modules.';
 
 
 # tags are not limited to blogs
@@ -883,7 +883,7 @@ CREATE TABLE prefix_tags (
   KEY `tags_typeuserid_idx` (`type`, `userid`),
   KEY `tags_text_idx` (`text`),
   PRIMARY KEY  (`id`)
-) TYPE=MyISAM COMMENT ='tags structure for moodle.';
+) ENGINE=MyISAM COMMENT ='tags structure for moodle.';
 
 # instance of a tag for a blog
 CREATE TABLE prefix_blog_tag_instance (
@@ -897,7 +897,7 @@ CREATE TABLE prefix_blog_tag_instance (
   KEY `bti_entryid_idx` (`entryid`),
   KEY `bti_tagid_idx` (`tagid`),
   PRIMARY KEY  (`id`)
-) TYPE=MyISAM COMMENT ='tag instance for blogs.';
+) ENGINE=MyISAM COMMENT ='tag instance for blogs.';
 
 
 INSERT INTO prefix_log_display (module, action, mtable, field) VALUES ('user', 'view', 'user', 'CONCAT(firstname," ",lastname)');

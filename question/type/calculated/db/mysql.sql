@@ -13,6 +13,6 @@ CREATE TABLE prefix_question_calculated (
   PRIMARY KEY  (id),
   KEY question (question),
   KEY answer (answer)
-) TYPE=MyISAM COMMENT='Options for questions of type calculated';
+) ENGINE=MyISAM COMMENT='Options for questions of type calculated';
 
 -- --------------------------------------------------------

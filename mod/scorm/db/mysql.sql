@@ -25,7 +25,7 @@ CREATE TABLE prefix_scorm (
   PRIMARY KEY  (id),
   UNIQUE KEY id (id),
   KEY course (course)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 CREATE TABLE prefix_scorm_scoes (
   id int(10) unsigned NOT NULL auto_increment,
@@ -48,7 +48,7 @@ CREATE TABLE prefix_scorm_scoes (
   PRIMARY KEY (id),
   UNIQUE KEY id (id),
   KEY scorm (scorm)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 CREATE TABLE prefix_scorm_scoes_track (
   id int(10) unsigned NOT NULL auto_increment,
@@ -65,7 +65,7 @@ CREATE TABLE prefix_scorm_scoes_track (
   KEY scoid (scoid),
   KEY element (element),
   UNIQUE track (userid, scormid, scoid, attempt, element)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 #
 # Dumping data for table log_display

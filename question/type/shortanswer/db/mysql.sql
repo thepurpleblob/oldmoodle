@@ -11,6 +11,6 @@ CREATE TABLE prefix_question_shortanswer (
   usecase tinyint(2) NOT NULL default '0',
   PRIMARY KEY  (id),
   KEY question (question)
-) TYPE=MyISAM COMMENT='Options for short answer questions';
+) ENGINE=MyISAM COMMENT='Options for short answer questions';
 
 -- --------------------------------------------------------

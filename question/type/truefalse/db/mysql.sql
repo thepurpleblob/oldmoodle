@@ -10,4 +10,4 @@ CREATE TABLE prefix_question_truefalse (
   falseanswer int(10) unsigned NOT NULL default '0',
   PRIMARY KEY  (id),
   KEY question (question)
-) TYPE=MyISAM COMMENT='Options for True-False questions';
+) ENGINE=MyISAM COMMENT='Options for True-False questions';

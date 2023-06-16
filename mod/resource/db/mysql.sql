@@ -28,7 +28,7 @@ CREATE TABLE prefix_resource (
   PRIMARY KEY  (id),
   UNIQUE KEY id (id),
   KEY `course` (`course`)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 #

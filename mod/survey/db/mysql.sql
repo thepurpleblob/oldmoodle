@@ -26,7 +26,7 @@ CREATE TABLE prefix_survey (
   questions varchar(255) NOT NULL default '',
   PRIMARY KEY  (id), 
   KEY `course` (`course`)
-) TYPE=MyISAM COMMENT='all surveys';
+) ENGINE=MyISAM COMMENT='all surveys';
 
 #
 # Dumping data for table `survey`
@@ -53,7 +53,7 @@ CREATE TABLE prefix_survey_analysis (
   UNIQUE KEY id (id),
   KEY survey (survey),
   KEY userid (userid)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 #
 # Dumping data for table `survey_analysis`
@@ -78,7 +78,7 @@ CREATE TABLE prefix_survey_answers (
   KEY userid (userid),
   KEY survey (survey),
   KEY question (question)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 #
 # Dumping data for table `survey_answers`
@@ -99,7 +99,7 @@ CREATE TABLE `prefix_survey_questions` (
   `type` tinyint(3) NOT NULL default '0',
   `options` text,
   PRIMARY KEY  (`id`)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 #
 # Dumping data for table `survey_questions`
